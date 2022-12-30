@@ -1,33 +1,35 @@
 import clsx from 'clsx';
-import untypedItems from './items.json';
 import untypedRanges from './ranges.json';
-import { colorToClassName, dataSample, Item, Range } from './utils';
+import { items } from '../../core/utils/utils';
+import { Item, Range } from '~/core/types/types';
+import { colorToClassName, dataSample } from '~/core/constants/constants';
+import RangesView from './RangersView';
 
-const items = untypedItems as Item[];
 const ranges = untypedRanges as Range[];
 
-const transform = (items: Item[]) => {
-  // TODO implement
+const transform = (el: Item[]): Range[] => {
+  const newRanges: Range[] = [];
+  let firstItem = el[0];
+  
+  el.forEach((item, index) => {
+    if(firstItem.color !== item.color){
+      newRanges.push({
+        start: firstItem.date,
+        end: el[index - 1].date,
+        color: firstItem.color,
+      });
+      firstItem = item;
+    }
+  })
 
-  return ranges;
+  newRanges.push({
+    start: firstItem.date,
+    end: el[el.length - 1].date,
+    color: firstItem.color,
+  });
+
+  return newRanges;
 };
-
-const RangesView = ({ ranges }: { ranges: Range[] }) => (
-  <ul className="space-y-4">
-    {ranges.map((item) => (
-      <li
-        key={item.start + item.end}
-        className={clsx(
-          'h-10 flex items-center justify-between px-5 rounded',
-          colorToClassName[item.color],
-        )}
-      >
-        <span>{item.start}</span>
-        <span>{item.end}</span>
-      </li>
-    ))}
-  </ul>
-);
 
 export const Ranges = () => {
   return (

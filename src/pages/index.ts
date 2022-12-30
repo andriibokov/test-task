@@ -1,3 +1,4 @@
+export * from './home';
 export * from './optimize-1';
 export * from './optimize-2';
 export * from './ranges';

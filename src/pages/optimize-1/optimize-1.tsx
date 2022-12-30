@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { CenteredLayout } from '~/components';
+import { CenteredLayout } from '~/components/UI/CenteredLayout';
 import Todo from '~/components/Todo';
 
 const todosData = [

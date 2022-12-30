@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { CenteredLayout } from '~/components';
+import { CenteredLayout } from '~/components/UI/CenteredLayout';
 import Button from '~/components/UI/Button/Button';
 
 const buttons: string[] = ['fast', 'quality', 'cheap'];

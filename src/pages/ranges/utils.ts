@@ -1,4 +1,4 @@
-import { addDays, chooseRandomly, formatDate, range } from '~/utils';
+import { addDays, chooseRandomly, formatDate, range } from '~/core/utils/utils';
 
 const baseDate = new Date('2022-01-01');
 

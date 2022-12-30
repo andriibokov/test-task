@@ -1,7 +1,7 @@
 import { Outlet, ReactLocation, Route, Router } from '@tanstack/react-location';
-import { CenteredLayout } from '~/components';
+import { CenteredLayout } from '~/components/UI/CenteredLayout';
 import { Optimize1, Optimize2, Ranges, Refactor1, Refactor2 } from '~/pages';
-import { Header } from './header';
+import { Header } from './components/Header/header';
 
 const Welcome = () => (
   <CenteredLayout className="gap-4">
@@ -39,9 +39,11 @@ const routes: Route[] = [
   },
 ];
 
-export const App = () => (
+const App = () => (
   <Router location={reactLocation} routes={routes}>
     <Header />
     <Outlet />
   </Router>
 );
+
+export default App;

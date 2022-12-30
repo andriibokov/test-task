@@ -1,22 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRef } from 'react';
 
-export const useRenderHighlight = (className: string) => {
-  // TODO fix any
-  const ref = useRef<any>(null);
-
-  if (ref.current) {
-    ref.current.classList.add(className);
-    setTimeout(() => {
-      if (ref.current) {
-        ref.current.classList.remove(className);
-      }
-    }, 200);
-  }
-
-  return ref;
-};
-
 // TODO fix any
 export const range = (n: number, fn: (n: number) => any) => {
   const result = [];

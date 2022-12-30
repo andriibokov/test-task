@@ -1,8 +1,9 @@
 import React from "react";
 
-interface ButtonProps {
+export interface ButtonProps {
+  flag?: boolean;
   value?: string;
-  onClick?: (event?: React.MouseEvent<HTMLButtonElement>, value?: string | null) => void;
+  onClick?: (event?: React.MouseEvent<HTMLButtonElement>, value?: string | number| null) => void;
   className?: string;
   children?: React.ReactNode;
 };
